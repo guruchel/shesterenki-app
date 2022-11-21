@@ -1,0 +1,25 @@
+.title {
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 39px;
+
+  color: #15cdcb;
+}
+.left {
+  composes: title;
+  text-align: left;
+}
+.right {
+  composes: title;
+  text-align: right;
+}
+.center {
+  composes: title;
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .title {
+    font-size: 20px;
+  }
+}

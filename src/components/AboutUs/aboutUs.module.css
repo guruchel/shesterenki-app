@@ -1,0 +1,59 @@
+.section {
+  background-image: url("/public/aboutBackground.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+  width: 100vw;
+  padding: 34px 0px 67px 0px;
+}
+
+.about {
+  background: linear-gradient(
+      90.1deg,
+      rgba(255, 255, 255, 0.1) 0.06%,
+      rgba(255, 255, 255, 0) 99.92%
+    ),
+    #000000;
+  border: 3px solid #15cdcb;
+  border-radius: 15px;
+  padding: 20px 71px 23px 52px;
+}
+
+.title {
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 39px;
+  text-align: right;
+  color: #15cdcb;
+  margin-bottom: 9px;
+}
+
+.description {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: right;
+  color: #ffffff;
+}
+@media (max-width: 600px) {
+  .section {
+    padding: 7px 12px 14px 12px;
+  }
+  .about {
+    padding: 19px 23px 24px 24px;
+  }
+  .title {
+    font-size: 20px;
+    line-height: 24px;
+    text-align: left;
+    color: #ffffff;
+    margin-bottom: 7px;
+  }
+  .description {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    color: #ffffff;
+    text-align: left;
+  }
+}

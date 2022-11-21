@@ -1,0 +1,45 @@
+.wrapper {
+  display: flex;
+  height: 242px;
+  max-width: 549px;
+  width: 100%;
+  background-color: #ffffff;
+}
+.img {
+  max-width: 239px;
+  width: 100%;
+  object-fit: cover;
+}
+.rightPart {
+  padding: 5px 17px 19px 30px;
+}
+.price {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 27px;
+  color: #000000;
+  margin-bottom: 5px;
+}
+.vendorCode {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  color: #3f54d1;
+  margin-bottom: 5px;
+}
+.title {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  color: #000000;
+}
+.description {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  color: #000000;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
