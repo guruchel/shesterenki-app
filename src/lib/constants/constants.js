@@ -1,3 +1,2 @@
-export const BASE_URL = process.env.REACT_APP_BASE_URL;
-export const API_URL = BASE_URL + "";
-export const TIMEOUT = 5000;
+export const BASE_URL = "https://testguru.ru/parser";
+export const TIMEOUT = 50000;

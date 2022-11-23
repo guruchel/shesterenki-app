@@ -1,0 +1,168 @@
+.wrapper {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 248px;
+  max-width: 826px;
+  height: 407px;
+  overflow-y: scroll;
+  width: 300%;
+  background-color: #ffffff;
+  z-index: 1000;
+  border: 3px solid #000000;
+  border-radius: 15px;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  padding: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrapperRight {
+  display: flex;
+  position: absolute;
+  top: 0;
+  height: 407px;
+  overflow-y: scroll;
+  right: 30px;
+  max-width: 826px;
+  width: 300%;
+  background-color: #ffffff;
+  z-index: 1000;
+  border: 3px solid #000000;
+  border-radius: 15px;
+}
+.wrapperCenter {
+  display: flex;
+  position: absolute;
+  top: 0;
+  height: 407px;
+  overflow-y: scroll;
+  right: 0px;
+  max-width: 826px;
+  width: 300%;
+  background-color: #ffffff;
+  z-index: 1000;
+  border: 3px solid #000000;
+  border-radius: 15px;
+}
+.img {
+  max-width: 259px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 27px;
+  color: #000000;
+}
+.price {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 30px;
+  color: #000000;
+}
+.vendorCode {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+  color: #8c8c8c;
+  margin-left: 8px;
+}
+.description {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+  color: #000000;
+}
+.rightSide {
+  padding: 11px 49px 29px 18px;
+}
+
+.TopWrapper {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 1200px) {
+  .wrapper {
+    left: 48px;
+  }
+  .wrapperRight {
+    right: 48px;
+  }
+  .wrapperCenter {
+    right: -260px;
+  }
+}
+@media (max-width: 1000px) {
+  .wrapper {
+    max-width: 580px;
+  }
+  .wrapperRight {
+    max-width: 580px;
+  }
+  .wrapperCenter {
+    max-width: 580px;
+  }
+}
+@media (max-width: 900px) {
+  .wrapper {
+  }
+
+  .price {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .title {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .description {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+  }
+  .vendorCode {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+  }
+  .rightSide {
+    padding: 7px 7px 14px 8px;
+  }
+}
+@media (max-width: 600px) {
+  .img {
+    width: 100%;
+    max-width: 100%;
+  }
+  .wrapper {
+    position: static;
+    max-width: 78%;
+    width: 100%;
+    height: 499px;
+    flex-direction: column;
+  }
+  .img {
+    width: 100%;
+    max-height: 115px;
+    height: 100%;
+  }
+  .description {
+    margin-bottom: 11px;
+  }
+  .vendorCode {
+    margin: 0;
+  }
+}
