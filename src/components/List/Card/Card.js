@@ -1,19 +1,31 @@
 import React from "react";
 import styles from "./Card.module.css";
+import FullView from "./FullView/FullView";
+import { useCard } from "./useCard";
 
-const Card = () => {
+const Card = ({ title, image, price, vendorCode, description, position }) => {
+  const { isMobile, isShow, handleShowFull, handleClickOut } = useCard();
   return (
-    <div className={styles.wrapper}>
-      <img className={styles.img} src={"./zagluska.jpg"} />
+    <div className={styles.wrapper} onClick={handleShowFull}>
+      <img className={styles.img} src={image} />
       <div className={styles.rightPart}>
-        <h3 className={styles.price}>30 000₽</h3>
-        <h5 className={styles.vendorCode}>137389473</h5>
-        <h4 className={styles.title}>Название запчасти Название запчасти</h4>
-        <p className={styles.description}>
-          Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский
-          набор слов, но это не совсем так. Его корни уходят в один
-        </p>
+        <h3 className={styles.price}>{price}</h3>
+        {!isMobile && <h5 className={styles.vendorCode}>{vendorCode}</h5>}
+        <h4 className={styles.title}>{title}</h4>
+        <p className={styles.description}>{description}</p>
+        {isMobile && <h5 className={styles.vendorCode}>137389473</h5>}
       </div>
+      {isShow && (
+        <FullView
+          position={position}
+          title={title}
+          image={image}
+          price={price}
+          vendorCode={vendorCode}
+          description={description}
+          handleClickOut={handleClickOut}
+        />
+      )}
     </div>
   );
 };
