@@ -8,7 +8,7 @@
       rgba(255, 255, 255, 0) 99.92%
     ),
     #000000;
-  border: 3px solid #15cdcb;
+  border-bottom: 3px solid #15cdcb;
   width: 100%;
   height: 65px;
   padding: 0px 119px 0px 114px;
@@ -241,6 +241,7 @@ span::after {
   border-radius: 10px;
 }
 .button {
+  transition: all 0.5s;
   background: #000000;
   border-radius: 10px;
   width: 227px;
@@ -250,6 +251,10 @@ span::after {
   line-height: 22px;
   color: #ffffff;
   margin: 0 auto;
+}
+.button:hover {
+  background: #15cdcb;
+  border: none;
 }
 .formFeedbackTitle {
   font-weight: 400;

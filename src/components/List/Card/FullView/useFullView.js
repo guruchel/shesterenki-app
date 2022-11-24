@@ -21,8 +21,6 @@ export const useFullVisible = (handleClickOut) => {
   }, [isOpen]);
   const handleClick = () => {
     if (isOpen) {
-      console.log(typeof handleClickOut);
-      console.log(handleClickOut);
       handleClickOut();
       setIsOpen(false);
     }

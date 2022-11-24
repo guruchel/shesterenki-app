@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-// import { useEmailJS } from "../../hooks/useEmailJS";
+import { useEmailJS } from "../../hooks/useEmailJS";
 import { useTablet } from "../../hooks/useMediaQuery";
 
 export const useHeader = () => {
@@ -23,9 +23,8 @@ export const useHeader = () => {
     document.body.clientHeight,
     document.documentElement.clientHeight,
   );
-  // const { onFetchMail } = useEmailJS();
+  const { onFetchMail } = useEmailJS();
   const ScrollTo = (pixel = 290) => {
-    console.log(1);
     return () => {
       window.scroll({ top: pixel, behavior: "smooth" });
       document.body.style.overflowY = "scroll";
@@ -55,6 +54,7 @@ export const useHeader = () => {
         ) {
           setIsOpenSidebar(false);
           setIsShowRequisites((prev) => !prev);
+          setIsShowForm(false);
           return;
         }
         if (menuMobile.current.contains(e.target)) {
@@ -64,6 +64,7 @@ export const useHeader = () => {
       if (RequisitesButtonRef.current) {
         if (RequisitesButtonRef.current.contains(e.target)) {
           setIsShowRequisites((prev) => !prev);
+          setIsShowForm(false);
           return;
         }
       }
@@ -80,8 +81,6 @@ export const useHeader = () => {
     return () => document.removeEventListener("click", onClick);
   }, []);
   const handleChange = (e, set) => {
-    console.log(e);
-    console.log(set);
     set(e.target.value);
   };
   const handleClose = () => {
@@ -107,8 +106,7 @@ export const useHeader = () => {
       name,
       phone,
     };
-    console.log(data);
-    // onFetchMail(data);
+    onFetchMail(data);
   };
 
   return {

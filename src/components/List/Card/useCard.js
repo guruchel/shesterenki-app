@@ -9,7 +9,6 @@ export const useCard = () => {
     setIsShow((prev) => !prev);
   };
   const handleClickOut = () => {
-    console.log(1);
     setIsShow(false);
     document.body.style.overflowY = "scroll";
   };

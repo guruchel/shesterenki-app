@@ -7,7 +7,6 @@ import ReactDOM from "react-dom";
 
 const Header = () => {
   const isMobile = useMobile();
-  console.log(isMobile);
   const {
     menuButton,
     IsOpenSidebar,
@@ -31,7 +30,6 @@ const Header = () => {
     isShowRequisites,
     ScrollTo,
   } = useHeader();
-  console.log(isShowForm ? styles.formWrapperActive : styles.formWrapper);
   return (
     <header className={styles.header}>
       {isMobile && (
@@ -164,7 +162,9 @@ const Header = () => {
         isShowForm &&
         ReactDOM.createPortal(
           <div className={styles.requisitesOverlay} onClick={handleCloseForm}>
-            <div className={styles.formWrapper}>
+            <div
+              onClick={(e) => e.stopPropagation()}
+              className={styles.formWrapper}>
               <h3 className={styles.formFeedbackTitle}>ОБРАТНАЯ СВЯЗЬ</h3>
               <form className={styles.form}>
                 <textarea

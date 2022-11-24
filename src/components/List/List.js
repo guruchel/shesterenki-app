@@ -6,8 +6,8 @@ import { useList } from "./useList";
 
 const List = () => {
   const { cards, loadingCard, loader } = useList();
+  console.log(loadingCard);
   const isTable = window.matchMedia("(max-width: 996px)").matches;
-  console.log(isTable);
   return (
     <section className={styles.section}>
       <Container maxWidth={1734}>
@@ -15,10 +15,11 @@ const List = () => {
         <div className={styles.List}>
           {cards.map((item, i) => {
             let column = i % 3;
-
+            let margin = "margin";
             let position = "wrapper";
             if (!isTable) {
               if (column === 0) {
+                margin = "";
                 position = "wrapper";
               } else if (column === 2) {
                 position = "wrapperRight";
@@ -33,9 +34,11 @@ const List = () => {
                 position = "wrapperRight";
               }
             }
-            if (i <= loadingCard) {
+            console.log(loadingCard > 540 ? 539 : loadingCard);
+            if (i < (loadingCard > 540 ? 540 : loadingCard)) {
               return (
                 <Card
+                  margin={margin}
                   description={item.description}
                   position={position}
                   price={item.price}

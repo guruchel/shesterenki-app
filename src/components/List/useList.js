@@ -5,7 +5,7 @@ import { BASE_URL } from "../../lib/constants/constants";
 
 export const useList = () => {
   const [cards, setCards] = useState([]);
-  const [loadingCard, setLimit] = useState(100);
+  const [loadingCard, setLimit] = useState(99);
   // const [isEndCards, setIsEndCards] = useState<boolean>(false);
   const [loading, setLoading] = useState(false);
 
@@ -20,7 +20,7 @@ export const useList = () => {
   const handleClickMobile = () => {
     if (!(loadingCard > cards.length)) {
       const scrolled = window.scrollY;
-      setLimit((prev) => prev + 100);
+      setLimit((prev) => prev + 99);
       window.scrollTo(0, scrolled - 750);
     }
   };
@@ -29,7 +29,7 @@ export const useList = () => {
       const target = entries[0];
       if (target.isIntersecting && !loading) {
         setLimit((prev) => {
-          return prev + 100;
+          return prev + 99;
         });
       }
     },
@@ -49,7 +49,6 @@ export const useList = () => {
   useEffect(() => {
     fetchData();
   }, []);
-  console.log(cards);
   return {
     handleClickMobile,
     loadingCard,
