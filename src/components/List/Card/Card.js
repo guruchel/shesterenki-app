@@ -9,7 +9,7 @@ const Card = ({ title, image, price, vendorCode, description, position }) => {
     <div className={styles.wrapper} onClick={handleShowFull}>
       <img className={styles.img} src={image} />
       <div className={styles.rightPart}>
-        <h3 className={styles.price}>{price}</h3>
+        <h3 className={styles.price}>{price} ₽</h3>
         {!isMobile && <h5 className={styles.vendorCode}>{vendorCode}</h5>}
         <h4 className={styles.title}>{title}</h4>
         <p className={styles.description}>{description}</p>
