@@ -11,10 +11,12 @@ export const useHeader = () => {
   const [phone, setPhone] = useState("");
   const [IsOpenSidebar, setIsOpenSidebar] = useState(false);
   const [isShowRequisites, setIsShowRequisites] = useState(false);
+  const [isShowContact, setIsContact] = useState(false);
   const menuButton = useRef(null);
   const menuMobile = useRef(null);
   const RequisitesRef = useRef(null);
   const RequisitesButtonRef = useRef(null);
+  const ContactButtonRef = useRef(null);
   const scrollHeight = Math.max(
     document.body.scrollHeight,
     document.documentElement.scrollHeight,
@@ -24,7 +26,7 @@ export const useHeader = () => {
     document.documentElement.clientHeight,
   );
   const { onFetchMail } = useEmailJS();
-  const ScrollTo = (pixel = 290) => {
+  const ScrollTo = (pixel = 0) => {
     return () => {
       window.scroll({ top: pixel, behavior: "smooth" });
       document.body.style.overflowY = "scroll";
@@ -65,15 +67,26 @@ export const useHeader = () => {
         if (RequisitesButtonRef.current.contains(e.target)) {
           setIsShowRequisites((prev) => !prev);
           setIsShowForm(false);
+          setIsContact(false);
           return;
         }
       }
       if (RequisitesRef.current) {
         if (RequisitesRef.current.contains(e.target)) {
+          setIsContact(false);
+          return;
+        }
+      }
+      if (ContactButtonRef.current) {
+        if (ContactButtonRef.current.contains(e.target)) {
+          setIsContact(true);
+          setIsShowRequisites(false);
+          setIsShowForm(false);
           return;
         }
       }
       setIsShowRequisites(false);
+      setIsContact(false);
       setIsOpenSidebar(false);
     };
 
@@ -108,6 +121,9 @@ export const useHeader = () => {
     };
     onFetchMail(data);
   };
+  const handleContact = () => {
+    setIsContact((prev) => !prev);
+  };
 
   return {
     isTable,
@@ -134,6 +150,9 @@ export const useHeader = () => {
     // handleClickMenu,
     isShowRequisites,
     handleCloseForm,
+    handleContact,
+    isShowContact,
+    ContactButtonRef,
     handleCloseRequsites,
   };
 };

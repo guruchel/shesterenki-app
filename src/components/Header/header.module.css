@@ -182,6 +182,7 @@ span::after {
 .form {
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 .textarea {
   max-width: 321px;
@@ -262,6 +263,12 @@ span::after {
   line-height: 24px;
   color: #000000;
   margin-bottom: 7px;
+}
+.closeIcon {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  cursor: pointer;
 }
 @media (max-width: 1200px) {
   .formWrapperActive {

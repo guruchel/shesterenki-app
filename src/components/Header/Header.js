@@ -3,6 +3,7 @@ import { useMobile } from "../../hooks/useMediaQuery";
 import styles from "./header.module.css";
 import { useHeader } from "./useHeader";
 import ReactDOM from "react-dom";
+import CloseIcon from "./CloseIcon";
 // import { useHeader } from "./useHeader";
 
 const Header = () => {
@@ -10,9 +11,11 @@ const Header = () => {
   const {
     menuButton,
     IsOpenSidebar,
+    isShowContact,
     handleChange,
     handleSubmit,
     setAboutMySelf,
+    handleContact,
     setEmail,
     setName,
     setPhone,
@@ -28,6 +31,7 @@ const Header = () => {
     handleCloseRequsites,
     // handleClickMenu,
     isShowRequisites,
+    ContactButtonRef,
     ScrollTo,
   } = useHeader();
   return (
@@ -51,7 +55,10 @@ const Header = () => {
             <li className={styles.liMenu} onClick={handleOpenForm}>
               Обратная связь
             </li>
-            <li className={styles.liMenu} onClick={ScrollTo()}>
+            <li
+              className={styles.liMenu}
+              onClick={handleContact}
+              ref={ContactButtonRef}>
               Контакты
             </li>
             <li className={styles.liMenu} onClick={ScrollTo()}>
@@ -69,7 +76,10 @@ const Header = () => {
           <li className={styles.li} onClick={handleOpenForm}>
             Обратная связь
           </li>
-          <li className={styles.li} onClick={ScrollTo()}>
+          <li
+            className={styles.li}
+            onClick={handleContact}
+            ref={ContactButtonRef}>
             Контакты
           </li>
           <li className={styles.li} onClick={ScrollTo()}>
@@ -104,11 +114,8 @@ const Header = () => {
               }
               ref={RequisitesRef}>
               <p>
-                ИП Жижелева Елена Сергеевна <br />
-                E-mail:89193563142@mail.ru
-                <br />
-                Телефон:+ 7-919-356 31-42
-                <br /> ИНН:744817458551
+                E-mail:89193563142@mail.ru <br />
+                <br /> Телефон:+ 7-919-356 31-42
               </p>
             </div>
           </div>,
@@ -117,9 +124,43 @@ const Header = () => {
       {!isMobile && (
         <div
           className={
+            isShowContact ? styles.requisitesActive : styles.requisites
+          }
+          ref={RequisitesRef}>
+          <p>
+            E-mail:89193563142@mail.ru <br />
+            Телефон:+ 7-919-356 31-42
+          </p>
+        </div>
+      )}
+
+      {isMobile &&
+        isShowContact &&
+        ReactDOM.createPortal(
+          <div
+            className={styles.requisitesOverlay}
+            onClick={handleCloseRequsites}>
+            <div
+              className={
+                isShowContact ? styles.requisitesActive : styles.requisites
+              }
+              ref={RequisitesRef}>
+              <p>
+                E-mail:89193563142@mail.ru
+                <br /> Телефон:+ 7-919-356 31-42
+              </p>
+            </div>
+          </div>,
+          document.body,
+        )}
+
+      {!isMobile && (
+        <div
+          className={
             isShowForm ? styles.formWrapperActive : styles.formWrapper
           }>
           <form onSubmit={handleSubmit} className={styles.form}>
+            <CloseIcon handleContact={handleCloseForm} />
             <textarea
               value={aboutMySelf}
               className={styles.textarea}
@@ -167,6 +208,7 @@ const Header = () => {
               className={styles.formWrapper}>
               <h3 className={styles.formFeedbackTitle}>ОБРАТНАЯ СВЯЗЬ</h3>
               <form className={styles.form}>
+                <CloseIcon handleContact={handleCloseForm} />
                 <textarea
                   className={styles.textarea}
                   onChange={(e) => handleChange(e, setAboutMySelf)}
