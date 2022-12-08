@@ -23,7 +23,7 @@ const FullView = ({
           <img className={styles.img} src={image} />
           <div className={styles.rightSide}>
             <div className={styles.TopWrapper}>
-              <h4 className={styles.price}>{price}</h4>
+              <h4 className={styles.price}>{price} ₽</h4>
               <h5 className={styles.vendorCode}>{vendorCode}</h5>
             </div>
             <h3 className={styles.title}>{title}</h3>
@@ -38,7 +38,7 @@ const FullView = ({
               <img className={styles.img} src={image} />
               <div className={styles.rightSide}>
                 <div className={styles.TopWrapper}>
-                  <h4 className={styles.price}>{price}</h4>
+                  <h4 className={styles.price}>{price} ₽</h4>
                 </div>
                 <h3 className={styles.title}>{title}</h3>
                 <p className={styles.description}>{description}</p>
