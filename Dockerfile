@@ -1,10 +1,12 @@
-FROM node:16-alpine
+FROM node:18-alpine as build
 WORKDIR /app
-ADD package.json package.json
-RUN npm install
-ADD . .
-ENV NODE_ENV production
+COPY . /app
+RUN npm i
 RUN npm run build
-RUN npm prune --production
-CMD ["npm", "start"]
-EXPOSE 3000
+
+FROM node:18-alpine
+WORKDIR app/
+COPY --from=build /app/build /app/build
+COPY . /app
+RUN npm i -g serve
+CMD ["serve", "-s", "-n", "build", "-l", "3000"]

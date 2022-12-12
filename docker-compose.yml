@@ -1,8 +1,10 @@
 version: "3"
 services:
   app:
-    image: practice
-    container_name: practice
+    image: metallstanki74
+    container_name: metallstanki74
+    stdin_open: true
+    tty: true
     restart: always
     ports:
-      - 5775:3000
+      - "5673:3000"
